@@ -1,0 +1,31 @@
+{
+  "name": "es-response-parser",
+  "version": "1.0.0",
+  "description": "A module that helps to parse Elasticsearch aggregation response to human readable form",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Isabek/es-response-parser.git"
+  },
+  "keywords": [
+    "Elasticsearch aggregation Node.JS",
+    "response parser aggregation Node.JS",
+    "human readable response elasticsearch"
+  ],
+  "author": "isabek2309@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Isabek/es-response-parser/issues"
+  },
+  "homepage": "https://github.com/Isabek/es-response-parser#readme",
+  "devDependencies": {
+    "assert": "^1.3.0"
+  },
+  "dependencies": {
+    "mocha": "^2.3.4",
+    "xtend": "^4.0.1"
+  }
+}
