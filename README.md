@@ -100,3 +100,7 @@ var esResponse = {
       }
     ]
 ```
+
+## Tests
+
+  npm test
