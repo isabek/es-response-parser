@@ -1,5 +1,7 @@
 # Elasticsearch aggregation response parser
 
+[![Build Status](https://travis-ci.org/Isabek/es-response-parser.svg)](https://travis-ci.org/Isabek/es-response-parser)
+
 Elasticsearch response parser for Node.JS
 
 ## how to use
