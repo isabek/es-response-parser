@@ -1,6 +1,6 @@
 {
   "name": "es-response-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module that helps to parse Elasticsearch aggregation response to human readable form",
   "main": "index.js",
   "scripts": {
