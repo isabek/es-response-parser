@@ -57,6 +57,61 @@ describe("testing Elasticsearch Response Parser", function () {
 
     done();
   });
+  
+  it("should prefer 'normalized_value' property of a metric over the 'value' property", function (done) {
+
+    var esResponse = {
+      "aggregations": {
+        "offerId": {
+          "doc_count_error_upper_bound": 0,
+          "sum_other_doc_count": 0,
+          "buckets": [
+            {
+              "key": "F1A2LqSYD3u",
+              "doc_count": 6,
+              "offerClick": {
+                "value": 6.0,
+                "normalized_value": 10.0
+              }
+            },
+            {
+              "key": "F1MGDprRRJP",
+              "doc_count": 6,
+              "offerClick": {
+                "value": 6.0,
+                "normalized_value": 15.0
+              }
+            },
+            {
+              "key": "F1MGDprnv7y",
+              "doc_count": 5,
+              "offerClick": {
+                "value": 5.0,
+                "normalized_value": 7.0
+              }
+            }
+          ]
+        }
+      }
+    };
+
+    assert.deepEqual(esResponseParser.parse(esResponse), [
+      {
+        "offerClick": 10,
+        "offerId": "F1A2LqSYD3u"
+      },
+      {
+        "offerClick": 15,
+        "offerId": "F1MGDprRRJP"
+      },
+      {
+        "offerClick": 7,
+        "offerId": "F1MGDprnv7y"
+      }
+    ]);
+
+    done();
+  });
 
   it("should return parsed aggregation in object with 2 group by and 3 metric", function (done) {
     var response = {
