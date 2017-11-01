@@ -97,8 +97,8 @@ function isSubAgg(subAgg) {
 }
 
 function handleMetrics(next, first, agg, metric, metricName, pastAggregation) {
-  if (!metric.hasOwnProperty("value")) return next(agg, metric, metricName, pastAggregation);
-  return agg.addMetric(metricName, metric.value);
+  if (!metric.hasOwnProperty("value") && !metric.hasOwnProperty("normalized_value")) return next(agg, metric, metricName, pastAggregation);
+  return agg.addMetric(metricName, metric.normalized_value || metric.value);
 }
 
 function handleOneBucket(next, first, agg, bucket, key, pastAggregation) {
